@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { nodeModuleNameResolver } from 'typescript';
-
 
 export default function Textbar(props) {
     const [text, SetText] = useState('');
@@ -36,7 +34,7 @@ export default function Textbar(props) {
                 SetCopy("copy");
             },2000);
         }
-        navigator.clipboard.writeText();
+        navigator.clipboard.writeText(text);
     };
 
     const handleOnChange = (event) => {
@@ -72,7 +70,9 @@ export default function Textbar(props) {
             </div>
             <div className={`container text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                 <h3> <b>Text Summary</b></h3>
-                <p> {text === "" ? 0: text.split(' ').length } words and {text.length} characters.</p>
+                <p> {text === "" ? 0 : text.split(/\s+/).filter((ele) => { return ele.length !== 0 }).length}
+                    words and {text.length} characters.
+                </p>
                 <p> {0.008 * (text === "" ? 0 : text.split(' ').length).toPrecision(2)} mins read.</p>
                 <p> { text === "" ? 0: text.split('.').length } sentences</p>
             </div>

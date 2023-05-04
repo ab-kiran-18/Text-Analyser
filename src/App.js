@@ -15,7 +15,7 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode('dark');
-      document.body.style.backgroundColor = "rgb(22 25 29 / 80%)";
+      document.body.style.backgroundColor = "rgb(8 42 81 / 96%)";
     } else {
       setMode('light');
       document.body.style.backgroundColor = "white";
@@ -30,7 +30,7 @@ function App() {
           <Routes>
             <Route exact path="/about" element={<About mode={mode} />} />
             <Route exact path="/"
-              element={<Textbar heading="Enter the Text to Analyze" mode={mode} />}
+              element={<Textbar heading="Text Analyzer: word counter, word formatter.." mode={mode} />}
             />
           </Routes>
           </div>
